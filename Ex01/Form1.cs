@@ -347,7 +347,7 @@ namespace Ex01
         }
 
 
-        public int fnVerificarLineaVerde(int pos01, int pos02, int pos03, int llave)  // fincion verificar si hay linea de 3 Verde
+        public int fnVerificarLineaVerde(int pos01, int pos02, int pos03, int llave)  // funcion verificar si hay linea de 3 Verde
         {
             if (pos01 * pos02 * pos03 * llave == 1) // cuando 3 verdes en  linea
             {
@@ -364,7 +364,7 @@ namespace Ex01
 
         //   ----------     -----------  //
 
-        public int fnVerificarLineaAzul(int pos01, int pos02, int pos03, int llave) // fincion verificar si hay linea de 3 Azul
+        public int fnVerificarLineaAzul(int pos01, int pos02, int pos03, int llave) // funcion verificar si hay linea de 3 Azul
         {
             if (pos01 * pos02 * pos03 * llave == 8) // cuando 3 verdes en  linea
             {
@@ -375,7 +375,7 @@ namespace Ex01
                 colorRobar = 1; // azul
                 llave = 2;
             }
-            else if (pos01 * pos02 * pos03 * llave != 16) { llave = 1; }
+            else if (pos01 * pos02 * pos03 * llave != 16) { llave = 1; } 
             return llave;
         }
 
@@ -441,23 +441,6 @@ namespace Ex01
         }
 
 
-
-
-
-        public PictureBox fnBorrarFichaContraria(int selecci, int index, PictureBox pb,int varpb, int varspv)
-        {
-            if (selecci == index)
-            {
-                pb.BackgroundImage = null;
-                pb.BackColor = Color.Transparent;
-                varpb = 0;
-                varspv = 0;
-                contador--;
-                btnRobar.Visible = false;
-                poniendoFichas = true;
-            }
-            return null;
-        }
 
 
         public void btnRobar_Click(object sender, EventArgs e) // Botón para -- ROBAR -- ficha contraria
