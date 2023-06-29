@@ -259,7 +259,7 @@ namespace Ex01
         }
 
 
-        public int ColorSeleccionado() // Para encontrar el color de la ficha que se selecciona
+        public int ColorSeleccionado() // Para encontrar el color de la ficha que se selecciona.
         {
             int resultado = 0;
             if (EncontrarSeleccionada() == 0 && vpb1A == 1) { resultado = 1; }
