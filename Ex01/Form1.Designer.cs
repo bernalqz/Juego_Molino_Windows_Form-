@@ -66,6 +66,7 @@
             this.lblMovimiento = new System.Windows.Forms.Label();
             this.lblCuentaMov = new System.Windows.Forms.Label();
             this.btnInstrucciones = new System.Windows.Forms.Button();
+            this.lblTurno02 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1E)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb6D)).BeginInit();
@@ -95,7 +96,7 @@
             // 
             // btnReinicia
             // 
-            this.btnReinicia.Location = new System.Drawing.Point(601, 12);
+            this.btnReinicia.Location = new System.Drawing.Point(602, 12);
             this.btnReinicia.Name = "btnReinicia";
             this.btnReinicia.Size = new System.Drawing.Size(110, 23);
             this.btnReinicia.TabIndex = 0;
@@ -433,7 +434,8 @@
             // btnRobar
             // 
             this.btnRobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRobar.Location = new System.Drawing.Point(608, 126);
+            this.btnRobar.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnRobar.Location = new System.Drawing.Point(609, 163);
             this.btnRobar.Name = "btnRobar";
             this.btnRobar.Size = new System.Drawing.Size(94, 46);
             this.btnRobar.TabIndex = 9;
@@ -447,7 +449,7 @@
             this.lblTurno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTurno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTurno.Location = new System.Drawing.Point(615, 269);
+            this.lblTurno.Location = new System.Drawing.Point(615, 291);
             this.lblTurno.Name = "lblTurno";
             this.lblTurno.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.lblTurno.Size = new System.Drawing.Size(84, 46);
@@ -489,6 +491,21 @@
             this.btnInstrucciones.UseVisualStyleBackColor = true;
             this.btnInstrucciones.Click += new System.EventHandler(this.btnInstrucciones_Click);
             // 
+            // lblTurno02
+            // 
+            this.lblTurno02.AutoSize = true;
+            this.lblTurno02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTurno02.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurno02.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTurno02.Location = new System.Drawing.Point(615, 291);
+            this.lblTurno02.Name = "lblTurno02";
+            this.lblTurno02.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.lblTurno02.Size = new System.Drawing.Size(84, 46);
+            this.lblTurno02.TabIndex = 14;
+            this.lblTurno02.Text = "TURNO";
+            this.lblTurno02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTurno02.Click += new System.EventHandler(this.lblTurno02_Click);
+            // 
             // frmTresillo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +514,7 @@
             this.BackgroundImage = global::Ex01.Properties.Resources.GameBoard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(714, 600);
+            this.Controls.Add(this.lblTurno02);
             this.Controls.Add(this.btnInstrucciones);
             this.Controls.Add(this.lblCuentaMov);
             this.Controls.Add(this.lblMovimiento);
@@ -585,6 +603,7 @@
         private System.Windows.Forms.Label lblMovimiento;
         private System.Windows.Forms.Label lblCuentaMov;
         private System.Windows.Forms.Button btnInstrucciones;
+        private System.Windows.Forms.Label lblTurno02;
     }
 }
 

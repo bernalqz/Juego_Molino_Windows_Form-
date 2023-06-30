@@ -29,12 +29,19 @@ namespace Ex01
         int vspb1A, vspb2A, vspb3A, vspb1B, vspb2B, vspb3B, vspb1C, vspb2C, vspb3C, vspb1D, vspb2D, vspb3D, vspb4D, vspb5D, vspb6D, vspb1E, vspb2E, vspb3E,vspb1F, vspb2F, vspb3F,vspb1G, vspb2G, vspb3G = 0;
         int fichasVerdes = 9;
         int fichasAzules = 9;
-
+        
         int colorRobar = 0; // Selecciona el color que se debe robar
         // se guarda la informacion en caso de que haya 3 en línea en estas llaves:
         int llave01 = 1; int llave02 = 1; int llave03 = 1; int llave04 = 1; int llave05 = 1; int llave06 = 1; int llave07 = 1; int llave08 = 1; int llave09 = 1;
         int llave10 = 1; int llave11 = 1; int llave12 = 1; int llave13 = 1; int llave14 = 1; int llave15 = 1; int llave16 = 1; int llave17 = 1; int llave18 = 1; 
-        int llave19 = 1; int llave20 = 1; int llave21 = 1; int llave22 = 1; int llave23 = 1; int llave24 = 1; int llave25 = 1; int llave26 = 1; int llave27 = 1; 
+        int llave19 = 1; int llave20 = 1; int llave21 = 1; int llave22 = 1; int llave23 = 1; int llave24 = 1; int llave25 = 1;
+
+        private void lblTurno02_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        int llave26 = 1; int llave27 = 1; 
         int llave28 = 1; int llave29 = 1; int llave30 = 1; int llave31 = 1; int llave32 = 1;
         List<PictureBox> mPictureBoxesList = new List<PictureBox>(); // se crea una lista de PictureBox para poder buscarlas por su índice
         
@@ -50,6 +57,7 @@ namespace Ex01
             lblTurno.BackColor = Color.Blue;
             lblMovimiento.Visible = false;
             lblCuentaMov.Visible = false;
+            lblTurno02.Visible = false;
 
             // lista con los picture box
             mPictureBoxesList.Add(pb1A); //0
@@ -140,7 +148,7 @@ namespace Ex01
             btnRobar.Visible = false;
             lblCuentaMov.Visible = false;
             poniendoFichas = true;
-
+            lblTurno02.Visible = false;
 
         }
 
@@ -326,9 +334,9 @@ namespace Ex01
 
         public void mostrarTurno() // Funcion para indicar el color que juega
         {
-            if (contador != 0)
+            if (contador != 0 )
             {
-                if (contador % 2 == 0)
+                if (contador % 2 == 0 )
                 {
                     lblTurno.BackColor = Color.Blue;
                 }
@@ -338,7 +346,7 @@ namespace Ex01
                 }
             }
 
-             if (cuentaMovimientos != 0)
+             if (cuentaMovimientos != 0 )
             {
 
                 if (cuentaMovimientos % 2 == 0)
@@ -376,14 +384,14 @@ namespace Ex01
             {
                 // MessageBox.Show("El jugador VERDE ha hecho 3 en línea, Seleccione la ficha AZUL a robar!", "Logro verde" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
-                btnRobar.BackColor = Color.RoyalBlue;
-                if (cuentaMovimientos == 0) { contador++;}
-                if (contador == 0) {cuentaMovimientos++; }
+                btnRobar.BackColor = Color.Blue;
+                lblTurno.Visible = false;
+                lblTurno02.BackColor = Color.Green;
+                lblTurno02.Visible = true;
                 poniendoFichas = false;
                 colorRobar = 2; // azul
                 llave = 2;
-                
-            }
+              }
             else if (pos01 * pos02 * pos03 * llave != 2) { llave = 1; }
             return llave;
        }
@@ -397,14 +405,14 @@ namespace Ex01
 
                // MessageBox.Show("El jugador AZUL ha hecho 3 en línea, Seleccione la ficha VERDE a robar!", "Logro azul" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
-                btnRobar.BackColor = Color.YellowGreen;
-                if (cuentaMovimientos == 0) {contador++; }
-                if (contador == 0) { cuentaMovimientos++;}
+                btnRobar.BackColor = Color.Green;
+                lblTurno.Visible = false;
+                lblTurno02.BackColor = Color.Blue;
+                lblTurno02.Visible = true;
                 poniendoFichas = false;
                 colorRobar = 1; // azul
                 llave = 2;
-                
-            }
+             }
             else if (pos01 * pos02 * pos03 * llave != 16) { llave = 1; } 
             return llave;
 
@@ -466,7 +474,6 @@ namespace Ex01
 
             llave31 = fnVerificarLineaVerde(vpb3A, vpb6D, vpb3G, llave31);
             llave32 = fnVerificarLineaAzul (vpb3A, vpb6D, vpb3G, llave32);
-
 
 
         }
@@ -794,10 +801,11 @@ namespace Ex01
                     if (colorx == 1) { fichasVerdes--; }
                     if (colorx == 2) { fichasAzules--; }
                 }
-                if (cuentaMovimientos == 0) { contador--; }
-                if (contador == 0) { cuentaMovimientos--; }
+
+                lblTurno02.Visible = false;
+                lblTurno.Visible = true;
                 mostrarTurno();
-                Verificar_Ganador();
+
             }
                 else { MessageBox.Show("Debe de seleccionar la víctima del color CONTRARIO"); }
 
@@ -826,7 +834,7 @@ namespace Ex01
                 pb1A.BackgroundImage = Properties.Resources.verdemini;
                 pb1A.BackgroundImageLayout = ImageLayout.Center;
                 vpb1A = 1;
-                contador--;
+                
             }
             
             if (poniendoFichas == false && vpb1A != 0)  // condicion de selecion de ficha // si ya no hay fichas  
