@@ -87,7 +87,7 @@ namespace Ex01
             Instruccuines.Show();
         }
 
-        public void btnReinicia_Click(object sender, EventArgs e) // botón para reiniciar el juego
+        public void btnReinicia_Click(object sender, EventArgs e)           // botón para reiniciar el juego
         {
 
             contador = 18; // CANTIDAD DE FICHAS DE JUEGO
@@ -323,14 +323,38 @@ namespace Ex01
 
         public void mostrarTurno() // Funcion para indicar el color que juega
         {
-            if (contador % 2 == 0 && cuentaMovimientos % 2 == 0)
+
+
+
+            if (contador != 0)
             {
-                lblTurno.BackColor = Color.Blue;
+                if (contador % 2 == 0)
+                {
+                    lblTurno.BackColor = Color.Blue;
+                }
+                if (contador % 2 == 1)
+                {
+                    lblTurno.BackColor = Color.Green;
+                }
+
             }
-            else if (contador % 2 == 1 || cuentaMovimientos % 2 == 1)
+
+             if (cuentaMovimientos != 0)
             {
-                lblTurno.BackColor = Color.Green;
+
+                if (cuentaMovimientos % 2 == 0)
+                {
+                    lblTurno.BackColor = Color.Blue;
+                }
+                if (cuentaMovimientos % 2 == 1)
+                {
+                    lblTurno.BackColor = Color.Green;
+                }
             }
+
+             if (cuentaMovimientos == 0 && contador == 0)
+            { lblTurno.BackColor = Color.Blue; }
+
 
             if (contador == 0)
             {
@@ -347,16 +371,19 @@ namespace Ex01
         }
 
 
-        public int fnVerificarLineaVerde(int pos01, int pos02, int pos03, int llave)  // funcion verificar si hay linea de 3 Verde
+        private int fnVerificarLineaVerde(int pos01, int pos02, int pos03, int llave)  // funcion verificar si hay linea de 3 Verde
         {
             if (pos01 * pos02 * pos03 * llave == 1) // cuando 3 verdes en  linea
             {
-               // MessageBox.Show("El jugador VERDE ha hecho 3 en línea, Seleccione la ficha AZUL a robar!", "Logro verde", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El jugador VERDE ha hecho 3 en línea, Seleccione la ficha AZUL a robar!", "Logro verde" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
-                contador++;
+                btnRobar.BackColor = Color.RoyalBlue;
+                if (cuentaMovimientos == 0) { contador++;}
+                if (contador == 0) {cuentaMovimientos++; }
                 poniendoFichas = false;
                 colorRobar = 2; // azul
                 llave = 2;
+                
             }
             else if (pos01 * pos02 * pos03 * llave != 2) { llave = 1; }
             return llave;
@@ -364,19 +391,24 @@ namespace Ex01
 
         //   ----------     -----------  //
 
-        public int fnVerificarLineaAzul(int pos01, int pos02, int pos03, int llave) // funcion verificar si hay linea de 3 Azul
+        private int fnVerificarLineaAzul(int pos01, int pos02, int pos03, int llave) // funcion verificar si hay linea de 3 Azul
         {
             if (pos01 * pos02 * pos03 * llave == 8) // cuando 3 verdes en  linea
             {
-               // MessageBox.Show("El jugador AZUL ha hecho 3 en línea, Seleccione la ficha VERDE a robar!", "Logro azul", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show("El jugador AZUL ha hecho 3 en línea, Seleccione la ficha VERDE a robar!", "Logro azul" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
-                contador++;
+                btnRobar.BackColor = Color.YellowGreen;
+                if (cuentaMovimientos == 0) {contador++; }
+                if (contador == 0) { cuentaMovimientos++;}
                 poniendoFichas = false;
                 colorRobar = 1; // azul
                 llave = 2;
+                
             }
             else if (pos01 * pos02 * pos03 * llave != 16) { llave = 1; } 
             return llave;
+
         }
 
 
@@ -436,7 +468,7 @@ namespace Ex01
             llave31 = fnVerificarLineaVerde(vpb3A, vpb6D, vpb3G, llave31);
             llave32 = fnVerificarLineaAzul (vpb3A, vpb6D, vpb3G, llave32);
 
-
+            mostrarTurno();
 
         }
 
@@ -447,13 +479,11 @@ namespace Ex01
         {
 
 
-
+            
             int colorx = ColorSeleccionado();
             int selec = EncontrarSeleccionada();
           if (selec != 0  && ColorSeleccionado() == colorRobar)
             {
-
-
 
                 if (selec == 0)
                 {
@@ -461,7 +491,7 @@ namespace Ex01
                     pb1A.BackColor = Color.Transparent;
                     vpb1A = 0;
                     vspb1A = 0;
-                    contador--;
+
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -474,7 +504,7 @@ namespace Ex01
                     pb2A.BackColor = Color.Transparent;
                     vpb2A = 0;
                     vspb2A = 0;
-                    contador--;
+        
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -487,7 +517,7 @@ namespace Ex01
                     pb3A.BackColor = Color.Transparent;
                     vpb3A = 0;
                     vspb3A = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -501,7 +531,7 @@ namespace Ex01
                         pb1B.BackColor = Color.Transparent;
                         vpb1B = 0;
                         vspb1B = 0;
-                        contador--;
+                        
                         btnRobar.Visible = false;
                         poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -514,7 +544,7 @@ namespace Ex01
                     pb2B.BackColor = Color.Transparent;
                     vpb2B = 0;
                     vspb2B = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -527,7 +557,7 @@ namespace Ex01
                     pb3B.BackColor = Color.Transparent;
                     vpb3B = 0;
                     vspb3B = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -541,7 +571,7 @@ namespace Ex01
                     pb1C.BackColor = Color.Transparent;
                     vpb1C = 0;
                     vspb1C = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -554,7 +584,7 @@ namespace Ex01
                     pb2C.BackColor = Color.Transparent;
                     vpb2C = 0;
                     vspb2C = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -567,7 +597,7 @@ namespace Ex01
                     pb3C.BackColor = Color.Transparent;
                     vpb3C = 0;
                     vspb3C = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -580,7 +610,7 @@ namespace Ex01
                     pb1D.BackColor = Color.Transparent;
                     vpb1D = 0;
                     vspb1D = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -593,7 +623,7 @@ namespace Ex01
                     pb2D.BackColor = Color.Transparent;
                     vpb2D = 0;
                     vspb2D = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -606,7 +636,7 @@ namespace Ex01
                     pb3D.BackColor = Color.Transparent;
                     vpb3D = 0;
                     vspb3D = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -619,7 +649,7 @@ namespace Ex01
                     pb4D.BackColor = Color.Transparent;
                     vpb4D = 0;
                     vspb4D = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -632,7 +662,7 @@ namespace Ex01
                     pb5D.BackColor = Color.Transparent;
                     vpb5D = 0;
                     vspb5D = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -645,7 +675,7 @@ namespace Ex01
                     pb6D.BackColor = Color.Transparent;
                     vpb6D = 0;
                     vspb6D = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -657,20 +687,20 @@ namespace Ex01
                     pb1E.BackColor = Color.Transparent;
                     vpb1E = 0;
                     vspb1E = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
                     if (colorx == 2) { fichasAzules--; }
                 }
-                //
+                
                 if (selec == 16)
                 {
                     pb2E.BackgroundImage = null;
                     pb2E.BackColor = Color.Transparent;
                     vpb2E = 0;
                     vspb2E = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -683,7 +713,7 @@ namespace Ex01
                     pb3E.BackColor = Color.Transparent;
                     vpb3E = 0;
                     vspb3E = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -695,7 +725,7 @@ namespace Ex01
                     pb1F.BackColor = Color.Transparent;
                     vpb1F = 0;
                     vspb1F = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -708,7 +738,7 @@ namespace Ex01
                     pb2F.BackColor = Color.Transparent;
                     vpb2F = 0;
                     vspb2F = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -721,7 +751,7 @@ namespace Ex01
                     pb3F.BackColor = Color.Transparent;
                     vpb3F = 0;
                     vspb3F = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -733,7 +763,7 @@ namespace Ex01
                     pb1G.BackColor = Color.Transparent;
                     vpb1G = 0;
                     vspb1G = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -746,7 +776,7 @@ namespace Ex01
                     pb2G.BackColor = Color.Transparent;
                     vpb2G = 0;
                     vspb2G = 0;
-                    contador--;
+                    
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
@@ -759,18 +789,20 @@ namespace Ex01
                     pb3G.BackColor = Color.Transparent;
                     vpb3G = 0;
                     vspb3G = 0;
-                    contador--;
+
                     btnRobar.Visible = false;
                     poniendoFichas = true;
                     if (colorx == 1) { fichasVerdes--; }
                     if (colorx == 2) { fichasAzules--; }
                 }
+                if (cuentaMovimientos == 0) { contador++; }
+                if (contador == 0) { cuentaMovimientos++; }
                 mostrarTurno();
                 Verificar_Ganador();
             }
                 else { MessageBox.Show("Debe de seleccionar la víctima del color CONTRARIO"); }
 
-          
+        
 
         }
 
