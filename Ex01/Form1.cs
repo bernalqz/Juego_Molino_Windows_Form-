@@ -375,7 +375,7 @@ namespace Ex01
         {
             if (pos01 * pos02 * pos03 * llave == 1) // cuando 3 verdes en  linea
             {
-                MessageBox.Show("El jugador VERDE ha hecho 3 en línea, Seleccione la ficha AZUL a robar!", "Logro verde" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show("El jugador VERDE ha hecho 3 en línea, Seleccione la ficha AZUL a robar!", "Logro verde" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
                 btnRobar.BackColor = Color.RoyalBlue;
                 if (cuentaMovimientos == 0) { contador++;}
@@ -396,7 +396,7 @@ namespace Ex01
             if (pos01 * pos02 * pos03 * llave == 8) // cuando 3 verdes en  linea
             {
 
-                MessageBox.Show("El jugador AZUL ha hecho 3 en línea, Seleccione la ficha VERDE a robar!", "Logro azul" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show("El jugador AZUL ha hecho 3 en línea, Seleccione la ficha VERDE a robar!", "Logro azul" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
                 btnRobar.BackColor = Color.YellowGreen;
                 if (cuentaMovimientos == 0) {contador++; }
@@ -468,7 +468,7 @@ namespace Ex01
             llave31 = fnVerificarLineaVerde(vpb3A, vpb6D, vpb3G, llave31);
             llave32 = fnVerificarLineaAzul (vpb3A, vpb6D, vpb3G, llave32);
 
-            mostrarTurno();
+
 
         }
 
@@ -795,8 +795,8 @@ namespace Ex01
                     if (colorx == 1) { fichasVerdes--; }
                     if (colorx == 2) { fichasAzules--; }
                 }
-                if (cuentaMovimientos == 0) { contador++; }
-                if (contador == 0) { cuentaMovimientos++; }
+                if (cuentaMovimientos == 0) { contador--; }
+                if (contador == 0) { cuentaMovimientos--; }
                 mostrarTurno();
                 Verificar_Ganador();
             }
