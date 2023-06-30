@@ -44,8 +44,6 @@ namespace Ex01
             InitializeComponent();
         }
 
-
-
         private void Form1_Load_1(object sender, EventArgs e)
         {
             btnRobar.Visible = false;
@@ -129,7 +127,11 @@ namespace Ex01
 
             vpb1A = vpb2A = vpb3A = vpb1B = vpb2B = vpb3B = vpb1C = vpb2C = vpb3C = vpb1D = vpb2D = vpb3D = vpb4D = vpb5D = vpb6D = vpb1E = vpb2E = vpb3E = vpb1F = vpb2F = vpb3F = vpb1G = vpb2G = vpb3G = 0;
             vspb1A = vspb2A = vspb3A = vspb1B = vspb2B = vspb3B = vspb1C = vspb2C = vspb3C = vspb1D = vspb2D = vspb3D = vspb4D = vspb5D = vspb6D = vspb1E = vspb2E = vspb3E = vspb1F = vspb2F = vspb3F = vspb1G = vspb2G = vspb3G = 0;
-            llave01 = llave02 = llave03 = llave04 = llave05 =  1;
+
+
+           llave01 = 1; llave02 = 1;  llave03 = 1;  llave04 = 1;  llave05 = 1;  llave06 = 1;  llave07 = 1;  llave08 = 1;  llave09 = 1; llave10 = 1; llave11 = 1;  llave12 = 1; llave13 = 1; 
+            llave14 = 1; llave15 = 1; llave16 = 1; llave17 = 1; llave18 = 1; llave19 = 1; llave20 = 1;  llave21 = 1; llave22 = 1; llave23 = 1; llave24 = 1; llave25 = 1; llave26 = 1; llave27 = 1;
+           llave28 = 1; llave29 = 1;  llave30 = 1;  llave31 = 1; llave32 = 1;
 
 
             colorRobar = 0;
@@ -177,7 +179,8 @@ namespace Ex01
 
 
 
-            vspb1A = vspb2A = vspb3A = vspb1B = vspb2B = vspb3B = vspb1C = vspb2C = vspb3C = vspb1D = vspb2D = vspb3D = vspb4D = vspb5D = vspb6D = vspb1E = vspb2E = vspb3E = vspb1F = vspb2F = vspb3F = vspb1G = vspb2G = vspb3G = 0;
+            vspb1A = vspb2A = vspb3A = vspb1B = vspb2B = vspb3B = vspb1C = vspb2C = vspb3C = vspb1D = vspb2D = vspb3D = vspb4D = vspb5D = vspb6D = vspb1E = vspb2E = vspb3E = vspb1F = vspb2F
+            = vspb3F = vspb1G = vspb2G = vspb3G = 0;
 
         }
 
@@ -323,9 +326,6 @@ namespace Ex01
 
         public void mostrarTurno() // Funcion para indicar el color que juega
         {
-
-
-
             if (contador != 0)
             {
                 if (contador % 2 == 0)
@@ -336,7 +336,6 @@ namespace Ex01
                 {
                     lblTurno.BackColor = Color.Green;
                 }
-
             }
 
              if (cuentaMovimientos != 0)
@@ -353,7 +352,7 @@ namespace Ex01
             }
 
              if (cuentaMovimientos == 0 && contador == 0)
-            { lblTurno.BackColor = Color.Blue; }
+               { lblTurno.BackColor = Color.Blue; }
 
 
             if (contador == 0)
