@@ -384,7 +384,7 @@ namespace Ex01
             {
                 // MessageBox.Show("El jugador VERDE ha hecho 3 en línea, Seleccione la ficha AZUL a robar!", "Logro verde" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
-                btnRobar.BackColor = Color.Blue;
+                btnRobar.BackColor = Color.DodgerBlue;
                 lblTurno.Visible = false;
                 lblTurno02.BackColor = Color.Green;
                 lblTurno02.Visible = true;
@@ -405,7 +405,7 @@ namespace Ex01
 
                // MessageBox.Show("El jugador AZUL ha hecho 3 en línea, Seleccione la ficha VERDE a robar!", "Logro azul" + contador, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnRobar.Visible = true;
-                btnRobar.BackColor = Color.Green;
+                btnRobar.BackColor = Color.YellowGreen;
                 lblTurno.Visible = false;
                 lblTurno02.BackColor = Color.Blue;
                 lblTurno02.Visible = true;

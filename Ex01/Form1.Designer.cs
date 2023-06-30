@@ -434,7 +434,7 @@
             // btnRobar
             // 
             this.btnRobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRobar.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnRobar.ForeColor = System.Drawing.SystemColors.InfoText;
             this.btnRobar.Location = new System.Drawing.Point(609, 163);
             this.btnRobar.Name = "btnRobar";
             this.btnRobar.Size = new System.Drawing.Size(94, 46);
