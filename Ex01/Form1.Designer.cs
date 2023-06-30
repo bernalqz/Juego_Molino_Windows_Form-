@@ -497,7 +497,7 @@
             this.lblTurno02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTurno02.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTurno02.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTurno02.Location = new System.Drawing.Point(615, 291);
+            this.lblTurno02.Location = new System.Drawing.Point(615, 242);
             this.lblTurno02.Name = "lblTurno02";
             this.lblTurno02.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.lblTurno02.Size = new System.Drawing.Size(84, 46);
